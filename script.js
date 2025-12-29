@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailForm = document.getElementById('emailForm');
     const guestEmailInput = document.getElementById('guestEmail');
     const closeModalBtn = document.getElementById('closeModal');
+    const successModal = document.getElementById('successModal');
+
+    const declineModal = document.getElementById('declineModal');
     let pendingFormData = null;
 
     // Google Script URL
@@ -156,8 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // Decline logic
             sendDataToGoogleSheet(data);
+            declineModal.classList.remove('hidden');
         }
     });
+
+
+
+
+
 
     emailForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -165,8 +174,16 @@ document.addEventListener('DOMContentLoaded', () => {
             pendingFormData.email = guestEmailInput.value;
             modal.classList.add('hidden');
             sendDataToGoogleSheet(pendingFormData);
+
+            // Show Success Modal
+            successModal.classList.remove('hidden');
+
             pendingFormData = null; // Reset
             guestEmailInput.value = ''; // Clear input
         }
     });
+
+
+
+
 });
