@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivana & Vladyslav | Invitación de Boda</title>
+    <meta name="description" content="Estás invitado a la boda de Ivana & Vladyslav en el Mesón San Vicente.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="decoration top-left">
+        <img src="assets/sakura_top.png" alt="Decoración Sakura">
+    </div>
+    <div class="decoration top-right">
+        <img src="assets/sakura_top.png" alt="Decoración Sakura">
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <h1 class="names">Ivana <span class="amp">&</span> Vladyslav</h1>
+            <p class="subtitle">ESTÁS INVITADO<br>A NUESTRA BODA</p>
+
+            <div class="sakura-separator">
+                <span class="material-icons text-sm">spa</span>
+            </div>
+
+            <div class="date-location">
+                <span class="date">26 de septiembre de 2026</span>
+                <span class="location">Mesón San Vicente</span>
+            </div>
+        </header>
+
+        <section class="rsvp-card">
+            <h2>Confirmación</h2>
+            <p class="rsvp-question">¿Podrás asistir?</p>
+
+            <form id="rsvpForm">
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="attendance" value="accept" checked>
+                        <span class="radio-custom"></span>
+                        Acepto con gusto
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="attendance" value="decline">
+                        <span class="radio-custom"></span>
+                        Lamentablemente no podré asistir
+                    </label>
+                </div>
+
+                <div class="divider"></div>
+
+                <label class="checkbox-option">
+                    <input type="checkbox" name="plusOne" id="plusOne">
+                    <span class="checkbox-custom"></span>
+                    Acompañante
+                </label>
+
+                <div class="counter-group">
+                    <label for="children">Niños (menores de 12)</label>
+                    <div class="counter-controls">
+                        <button type="button" class="counter-btn" id="decreaseChildren"
+                            aria-label="Disminuir cantidad de niños">-</button>
+                        <span id="childrenCount" class="counter-value">0</span>
+                        <button type="button" class="counter-btn" id="increaseChildren"
+                            aria-label="Aumentar cantidad de niños">+</button>
+                        <input type="hidden" name="children" id="childrenInput" value="0">
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-button">CONFIRMAR ASISTENCIA</button>
+            </form>
+        </section>
+    </main>
+
+    <div class="decoration bottom-left">
+        <img src="assets/sakura_bottom.png" alt="Sakura Decoration">
+    </div>
+    <div class="decoration bottom-right">
+        <img src="assets/sakura_bottom.png" alt="Sakura Decoration">
+    </div>
+
+    <div id="emailModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>¡Gracias por aceptar!</h3>
+            <p>Por favor, déjanos tu email para enviarte todos los detalles del evento.</p>
+            <form id="emailForm">
+                <input type="email" id="guestEmail" placeholder="tu@email.com" required>
+                <button type="submit" class="cta-button small-btn">ENVIAR</button>
+            </form>
+            <button id="closeModal" class="close-btn">&times;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

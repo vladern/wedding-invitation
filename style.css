@@ -1,0 +1,431 @@
+:root {
+    --color-bg: #FDFBF7;
+    /* Soft cream/beige */
+    --color-gold: #B8860B;
+    /* Dark Goldenrod */
+    --color-gold-light: #D4AF37;
+    --color-text-primary: #4A4A4A;
+    --color-text-secondary: #6A6A6A;
+    --color-sakura-pink: #FFD1DC;
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Lato', sans-serif;
+    --spacing-unit: 1rem;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    /* Fallback if texture is missing, usage: background-image: url('assets/paper_texture.jpg'); */
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.9;
+    mix-blend-mode: multiply;
+    /* Helps integrate white bg of assets if any */
+}
+
+.decoration img {
+    max-width: 250px;
+    height: auto;
+}
+
+.top-left {
+    top: -20px;
+    left: -20px;
+}
+
+.top-right {
+    top: -20px;
+    right: -20px;
+    transform: scaleX(-1);
+}
+
+/* Mirror for right side */
+.bottom-left {
+    bottom: -20px;
+    left: -20px;
+}
+
+.bottom-right {
+    bottom: -20px;
+    right: -20px;
+    transform: scaleX(-1);
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    /* Mobile focused */
+    padding: 2rem;
+    z-index: 2;
+    text-align: center;
+    position: relative;
+}
+
+/* Header */
+.header {
+    margin-bottom: 2rem;
+    margin-top: 8rem;
+}
+
+.names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--color-gold);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    letter-spacing: normal;
+}
+
+.names .amp {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    color: var(--color-gold-light);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+}
+
+.date-location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.date-location .date {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.date-location .location {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-secondary);
+}
+
+.sakura-separator {
+    color: var(--color-gold-light);
+    margin: 0.5rem 0;
+    opacity: 0.8;
+}
+
+.sakura-separator .material-icons {
+    font-size: 24px;
+    /* Default size */
+}
+
+.sakura-separator .text-sm {
+    font-size: 18px;
+}
+
+/* RSVP Card */
+.rsvp-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.rsvp-card h2 {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.rsvp-question {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.text-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.radio-option input,
+.checkbox-option input {
+    display: none;
+}
+
+.radio-custom,
+.checkbox-custom {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-custom {
+    border-radius: 4px;
+}
+
+.radio-option input:checked+.radio-custom {
+    border-color: var(--color-gold);
+}
+
+.radio-option input:checked+.radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-gold);
+    border-radius: 50%;
+}
+
+.checkbox-option input:checked+.checkbox-custom {
+    background-color: var(--color-gold-light);
+    border-color: var(--color-gold-light);
+}
+
+.checkbox-option input:checked+.checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 1.5rem 0;
+    width: 100%;
+}
+
+.counter-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.counter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f5f5f5;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.counter-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--color-text-primary);
+    transition: transform 0.1s;
+}
+
+.counter-btn:active {
+    transform: scale(0.95);
+}
+
+.counter-value {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cta-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background-color: var(--color-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    max-width: 90%;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--color-gold);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+    font-family: var(--font-serif);
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.modal-content input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+}
+
+.modal-content input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.small-btn {
+    width: auto;
+    min-width: 120px;
+    padding: 0.7rem 1.5rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--color-text-primary);
+}
